@@ -1,6 +1,5 @@
 /* TODO:
- * 1. Pull patterns from external js files
- * 2. Make sure width and height vars are inline EVERYWHERE
+ * 1. Make sure width and height vars are inline EVERYWHERE
 */
 
 var cells = [];
@@ -9,18 +8,13 @@ var gridSize = 4;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  // set up quilt grid
   setupGrid();
-  // load patterns from external files?
 }
 
 function draw() {
-  noLoop();
+  // noLoop(); // For debugging
   background(255);
   makeGrid();
-  // cells[0][0].display();
-  // cells[0][1].display();
-  // cells[1][0].display();
   displayPatterns();
 }
 
