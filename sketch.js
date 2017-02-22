@@ -1,7 +1,6 @@
 /* TODO:
  * 1. Make sure width and height vars are inline EVERYWHERE
 */
-
 var cells = [];
 var alternate = false;
 var gridSize = 4;
