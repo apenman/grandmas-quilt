@@ -1,5 +1,6 @@
 /* TODO:
  * 1. Pull patterns from external js files
+ * 2. Make sure width and height vars are inline EVERYWHERE
 */
 
 var cells = [];
