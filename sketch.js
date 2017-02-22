@@ -1,10 +1,10 @@
 /* TODO:
- * 1. Currently hardcoded to 10x10 grid...change that
- * 2. Pull patterns from external js files
+ * 1. Pull patterns from external js files
 */
 
 var cells = [];
 var alternate = false;
+var gridSize = 4;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -24,32 +24,33 @@ function draw() {
 }
 
 function setupGrid() {
-  for(var i = 0; i < 10; i++) {
+  for(var i = 0; i < gridSize; i++) {
     cells[i] = [];
-    for(var j = 0; j < 10; j++) {
-       cells[i][j] = new Cell(createVector(0, 0), createVector((windowWidth/10), (windowHeight/10)));
+    for(var j = 0; j < gridSize; j++) {
+       cells[i][j] = new Cell(createVector(0, 0), createVector((windowWidth/gridSize), (windowHeight/gridSize)));
     }
   }
 }
 
 function makeGrid() {
-  for(var i = 0; i < 10; i++) {
-    line(0, i*(windowHeight/10), windowWidth, i*(windowHeight/10));
-    line(i*(windowWidth/10), 0, i*(windowWidth/10), windowHeight);
+  // This won't work if grid is not square
+  for(var i = 0; i < gridSize; i++) {
+    line(0, i*(windowHeight/gridSize), windowWidth, i*(windowHeight/gridSize));
+    line(i*(windowWidth/gridSize), 0, i*(windowWidth/gridSize), windowHeight);
   }
 }
 
 function displayPatterns() {
-  for(var i = 0; i < cells.length; i++) {
+  for(var i = 0; i < gridSize; i++) {
     // push on x translation
     // pop off after each loop because we multiply offset by index
     push();
-    translate(i*(windowWidth/10),0);
-    for(var j = 0; j < cells[i].length; j++) {
+    translate(i*(windowWidth/gridSize),0);
+    for(var j = 0; j < gridSize; j++) {
       // push on y translation
       // pop off after each loop because we multiply offset by index
       push();
-      translate(0,j*(windowHeight/10));
+      translate(0,j*(windowHeight/gridSize));
       // Call the display function of the current cell
       cells[i][j].display();
       pop();
