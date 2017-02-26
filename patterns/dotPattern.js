@@ -8,4 +8,9 @@ function DotPattern(boxMin, boxMax) {
     ellipse(2*(boxMax.x/3),2*(boxMax.y/3), 10);
     ellipse(boxMax.x/3,2*(boxMax.y/3), 10);
   }
+
+  this.resize = function(newMin, newMax) {
+    this.boxMin = newMin;
+    this.boxMax = newMax;
+  }
 }

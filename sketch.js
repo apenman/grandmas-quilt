@@ -17,6 +17,22 @@ function draw() {
   displayPatterns();
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  resizePatterns();
+}
+
+
+// Update all patterns to have new bounds
+function resizePatterns() {
+  for(var i = 0; i < gridSize; i++) {
+    for(var j = 0; j < gridSize; j++) {
+      if(cells[i][j].resize)
+        cells[i][j].resize(createVector(0, 0), createVector((windowWidth/gridSize), (windowHeight/gridSize)));
+    }
+  }
+}
+
 function setupGrid() {
   for(var i = 0; i < gridSize; i++) {
     cells[i] = [];
@@ -62,5 +78,9 @@ function Cell(cellMin, cellMax) {
 
   this.display = function() {
     this.pattern.display();
+  }
+
+  this.resize = function(newMin, newMax) {
+    this.pattern.resize(newMin, newMax);
   }
 }

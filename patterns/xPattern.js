@@ -8,4 +8,9 @@ function XPattern(boxMin, boxMax) {
     line(this.boxMin.x,this.boxMax.y, this.boxMax.x, this.boxMin.y);
     line(this.boxMin.x, this.boxMin.y, this.boxMax.x, this.boxMax.y)
   }
+
+  this.resize = function(newMin, newMax) {
+    this.boxMin = newMin;
+    this.boxMax = newMax;
+  }
 }
